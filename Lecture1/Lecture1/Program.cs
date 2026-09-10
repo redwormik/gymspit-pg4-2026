@@ -84,6 +84,8 @@ static int? ShortestPathRecursion(City city, City destination, ISet<City> visite
 		}
 	}
 
+	visited.Remove(city);
+
 	path = shortestPath;
 	return shortestLength;
 }
@@ -108,6 +110,7 @@ static void PrintPath(City city, City destination)
 
 
 City praha = new City("Praha");
+City ostrava = new City("Ostrava");
 City plzen = new City("Plzeň");
 City liberec = new City("Liberec");
 City brno = new City("Brno");
@@ -122,9 +125,11 @@ City sanFrancisco = new City("San Francisco");
 City anchorage = new City("Anchorage");
 
 praha.AddHighway(praha, 50);
+praha.AddHighway(ostrava, 300);
 praha.AddHighway(brno, 200);
 praha.AddHighway(plzen, 100);
 praha.AddHighway(liberec, 100);
+ostrava.AddHighway(brno, 130);
 plzen.AddHighway(liberec, 150);
 brno.AddHighway(bratislava, 130);
 
